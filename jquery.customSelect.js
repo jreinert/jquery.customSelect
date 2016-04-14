@@ -8,7 +8,19 @@
  * @license http://www.gnu.org/licenses/gpl.html GPL2 License 
  */
 
-(function ($) {
+(function(factory) {
+	'use strict';
+	if (typeof define === 'function' && define.amd) {
+		// AMD
+		define(['jquery'], factory);
+	} else if (typeof module !== 'undefined' && module.exports) {
+		// CommonJS
+		module.exports = factory(require('jquery'));
+	} else {
+		// Global
+		factory(jQuery);
+	}
+})(function ($) {
     'use strict';
 
     $.fn.extend({
@@ -150,4 +162,4 @@
             });
         }
     });
-})(jQuery);
+});
